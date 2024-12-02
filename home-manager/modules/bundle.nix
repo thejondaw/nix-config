@@ -5,7 +5,7 @@
     ./btop.nix
     ./kitty.nix
     ./qt.nix
-    ./flatpal.nix
+    ./flatpak.nix
 
     ./wms/hyprland.nix
     ./wms/waybar.nix
