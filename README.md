@@ -24,4 +24,7 @@ sudo nixos-install --flake .#nixos
 # 6. После перезагрузки активируем конфиг и home-manager
 sudo nixos-rebuild switch --flake .
 home-manager switch --flake .
+
+nmcli dev wifi list  # покажет сети
+nmcli dev wifi connect "ИМЯ_СЕТИ" password "ПАРОЛЬ"  # подключиться
 ```
