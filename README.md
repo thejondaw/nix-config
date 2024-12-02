@@ -1,38 +1,50 @@
 # ❄️ My NixOS Config
 
 ```shell
-# 1. Клонируем и готовим конфиг
+sudo systemctl start wpa_supplicant
+
+wpa_cli
+> add_network
+> set_network 0 ssid "твоя_сеть"
+> set_network 0 psk "твой_пароль"
+> enable_network 0
+> quit
+
+nix-shell -p git
+
+# Качаю просто ради своего disko.nix
 git clone https://github.com/thejondaw/nix-config.git
-mkdir nix
-cd nixos-config
-mv * $HOME/nix # Config is supposed to be in the ~/nix directory
-cd ../nix
+cd nix-config
 
-# 1. Создаём flake.lock с зависимостями для актуального железа
-nix --experimental-features "nix-command flakes" flake update
+mv disko.nix /tmp/
 
-# 2. Делаем разметку через disko
 echo -n "password" > /tmp/secret.key
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko disko.nix
 
-# 3. Генерим базовый hardware-configuration.nix
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko /tmp/disko.nix
+
 sudo nixos-generate-config --root /mnt
 
-# 4. Копируем их hardware-configuration.nix в наш конфиг
-sudo cp /mnt/etc/nixos/hardware-configuration.nix nixos/
+# Добавляем базовые настройки. Добавить: git home-manager
+sudo vi /mnt/etc/nixos/configuration.nix
 
-# 5. Теперь можно устанавливать через флейк
-sudo nixos-install --flake .#arasaka
+sudo nixos-install
 
-# ---
+> New password: ***
+> Retype new password: *** 
 
-nmcli dev wifi list  # покажет сети
-nmcli dev wifi connect "ИМЯ_СЕТИ" password "ПАРОЛЬ"  # подключиться
+reboot
 
-# 6. После перезагрузки активируем конфиг и home-manager
-nix flake update
-sudo nixos-rebuild switch --flake .
-home-manager switch --flake .
+# Like "root"
+passwd jondaw
+> New password: ***
+> Retype new password: *** 
 
+su - jondaw
 
+# Подключаемся через nmcli 
+nmcli dev wifi list
+sudo nmcli dev wifi connect "ИМЯ_СЕТИ" password "ПАРОЛЬ"
+
+# Если надо обновить
+sudo nixos-rebuild switch
 ```
