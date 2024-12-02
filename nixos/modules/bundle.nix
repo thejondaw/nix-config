@@ -12,6 +12,6 @@
     ./trim.nix
     ./bluetooth.nix
     ./nixvim/nixvim.nix
-    ./flatpak.nix
+    #./flatpak.nix
   ];
 }

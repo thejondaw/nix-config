@@ -15,7 +15,7 @@
     kdenlive
     obsidian
     zoom-us
-    thunar
+    xfce.thunar
     keepassxc
     mullvad-vpn
     gimp
@@ -29,7 +29,6 @@
     kubectl
     k9s
     helm
-    aws-cli
     terraform
     ansible
     python

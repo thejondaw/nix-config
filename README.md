@@ -3,8 +3,10 @@
 ```shell
 # 1. Клонируем и готовим конфиг
 git clone https://github.com/thejondaw/nix-config.git
-mv nixos-config $HOME/nix # Config is supposed to be in the ~/nix directory
-cd nix
+mkdir nix
+cd nixos-config
+mv * $HOME/nix # Config is supposed to be in the ~/nix directory
+cd ../nix
 
 # 2. Делаем разметку через disko
 echo -n "твой_пароль_для_шифрования" > /tmp/secret.key
