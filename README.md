@@ -19,12 +19,17 @@ sudo nixos-generate-config --root /mnt
 sudo cp /mnt/etc/nixos/hardware-configuration.nix nixos/
 
 # 5. Теперь можно устанавливать через флейк
-sudo nixos-install --flake .#nixos
+sudo nixos-install --flake .#arasaka
 
-# 6. После перезагрузки активируем конфиг и home-manager
-sudo nixos-rebuild switch --flake .
-home-manager switch --flake .
+# ---
 
 nmcli dev wifi list  # покажет сети
 nmcli dev wifi connect "ИМЯ_СЕТИ" password "ПАРОЛЬ"  # подключиться
+
+# 6. После перезагрузки активируем конфиг и home-manager
+nix flake update
+sudo nixos-rebuild switch --flake .
+home-manager switch --flake .
+
+
 ```
