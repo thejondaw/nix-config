@@ -11,7 +11,7 @@
 
   nixpkgs.overlays = [ inputs.polymc.overlay ];
 
-  networking.hostName = "arasaka"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
 
   time.timeZone = "America/Chicago"; # Set your time zone.
 
