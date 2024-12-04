@@ -10,7 +10,9 @@ wpa_cli
 > enable_network 0
 > quit
 
-nix-shell -p git
+nix-shell -p git fish
+
+fish
 
 # Качаю просто ради своего disko.nix
 git clone https://github.com/thejondaw/nix-config.git
