@@ -2,43 +2,43 @@
 
 ## Thinkpad T14 Gen 4
 
-- Model: 21HD0072US
-- Memory: 36GB DDR5
-- Processor: 12 x 13th Gen Interl(R) Core(TM) i7-1365U
-- Graphics: Intel Corporation Raptor Lake-P [Iris Xe Graphics](rev 04)
-- Storage: 1x SSD - 2TB - NVME
+- **Model**: 21HD0072US
+- **Memory**: 36GB DDR5
+- **Processor**: 12 x 13th Gen Interl(R) Core(TM) i7-1365U
+- **Graphics**: Intel Corporation Raptor Lake-P [Iris Xe Graphics](rev 04)
+- **Storage**: 1x SSD - 2TB - NVME
 
-- OS: NixOS 24.11
-- DE: GNOME
-- Windowing System: Wayland
+- **OS**: NixOS 24.11
+- **DE**: GNOME
+- **Windowing System**: Wayland
 
 ---
 
 ## NixOS Disk Layout
 
-- Disk: /dev/nvme0n1
-- Partition table: GPT
-- Root filesystem: BTRFS (LUKS encrypted)
+- **Disk**: /dev/nvme0n1
+- **Partition table**: GPT
+- **Root filesystem**: BTRFS (LUKS encrypted)
 
 ### Partitions
 
-- Boot (ESP)
-  - Size: 2GB
-  - Type: FAT32
-  - Mount: /boot
+- **Boot (ESP)**
+  - *Size*: 2GB
+  - *Type*: FAT32
+  - *Mount*: /boot
 
-- Swap
-  -Size: 40GB
+- **Swap**
+  - *Size*: 40GB
 
-- Root (encrypted)
-  - Size: Remaining space
-  - Encryption: LUKS (Argon2id)
-  - TRIM: enabled
+- **Root (encrypted)**
+  - *Size*: Remaining space
+  - *Encryption*: LUKS (Argon2id)
+  - *TRIM*: enabled
 
-- BTRFS Subvolumes
-  - Compression: zstd:2
-  - SSD optimized
-  - Async discard
+- **BTRFS Subvolumes**
+  - *Compression*: zstd:2
+  - *SSD optimized*
+  - *Async discard*
 
 ```shell
 @ -> /
