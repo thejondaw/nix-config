@@ -20,7 +20,12 @@
   # === USERS === #
 
   users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true;
+    programs.fish = {
+      enable = true;
+      loginShellInit = ''
+      starship init fish | source
+     '';
+  };
 
   users.users.jondaw = {
     isNormalUser = true;
@@ -185,18 +190,21 @@
     bat
     dust
     duf
-    fd
     lsd
     ripgrep
     wget
     git
     fish
+    starship
     fastfetch
     cmatrix
     cava
     btop
     nodejs_23
     puppeteer-cli
+
+    # Fonts
+    jetbrains-mono
 
     # Security
     keepassxc
