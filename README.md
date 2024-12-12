@@ -106,3 +106,11 @@ sudo nix-channel --update
 
 sudo nixos-rebuild switch
 ```
+
+```shell
+# Flatpak Visual Studio Code
+flatpak override --user --filesystem=~/.config/git com.visualstudio.code
+
+sudo git config --global user.name "thejondaw"
+sudo git config --global user.email "mrjondaw@gmail.com"
+```
