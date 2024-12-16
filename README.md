@@ -85,18 +85,18 @@ sudo vi /mnt/etc/nixos/configuration.nix
 sudo nixos-install
 
 > New password: ***
-> Retype new password: *** 
+> Retype new password: ***
 
 reboot
 
 # As "root"
 passwd jondaw
 > New password: ***
-> Retype new password: *** 
+> Retype new password: ***
 
 su - jondaw
 
-# Conect via "nmcli" 
+# Conect via "nmcli"
 nmcli dev wifi list
 sudo nmcli dev wifi connect "ИМЯ_СЕТИ" password "ПАРОЛЬ"
 
@@ -105,12 +105,4 @@ sudo nix-channel --add https://github.com/nix-community/home-manager/archive/rel
 sudo nix-channel --update
 
 sudo nixos-rebuild switch
-```
-
-```shell
-# Flatpak Visual Studio Code
-flatpak override --user --filesystem=~/.config/git com.visualstudio.code
-
-sudo git config --global user.name "thejondaw"
-sudo git config --global user.email "mrjondaw@gmail.com"
 ```
